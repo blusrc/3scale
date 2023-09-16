@@ -1,4 +1,4 @@
-import { LucideProps } from "lucide-react";
+import { Loader2Icon, LucideProps } from "lucide-react";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
 import dynamic from "next/dynamic";
 
@@ -7,7 +7,12 @@ interface LucideIconProps extends LucideProps {
 }
 
 const DynamicIcon = ({ name, ...props }: LucideIconProps) => {
-  const LucideIcon = dynamic(dynamicIconImports[name]);
+  const LucideIcon = dynamic(dynamicIconImports[name], {
+    loading: () => (
+      <Loader2Icon className="w-4 h-4 animate-spin text-muted-foreground" />
+    ), // Replace with your loading placeholder
+    // ssr: false, // Disable server-side rendering for dynamic import
+  });
 
   return <LucideIcon {...props} />;
 };

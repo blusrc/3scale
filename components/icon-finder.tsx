@@ -63,9 +63,9 @@ export function IconFinder({ icons }: IconFinderProps) {
               >
                 <DynamicIcon
                   name={iconName as keyof typeof dynamicIconImports}
-                  className="mr-2 h-4 w-4"
+                  className="h-4 w-4"
                 />
-                <span className="capitalize">
+                <span className="ml-2 capitalize">
                   {iconName.replace(/-/g, " ")}
                 </span>
                 <Check
